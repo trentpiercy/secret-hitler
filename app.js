@@ -25,9 +25,14 @@ var app = new Vue({
 
     policies_list: [],
     drawn_policies: [],
-    drawn_policies_temp: [],
     discard_tracker: 0,
     num_policies_left: 17,
+    played_policy: "",
+
+    liberal_slots: [false, false, false, false, false],
+    fascist_slots: [false, false, false, false, false, false],
+    liberal_slot_tracker: 0,
+    fascist_slot_tracker: 0,
 
     show_policies: false,
     show_policy_1: false,
@@ -125,37 +130,61 @@ var app = new Vue({
       this.show_policy_3 = true
       this.num_policies_left = this.policies_list.length
       this.show_draw = false
-      this.drawn_policies_temp = this.drawn_policies
     },
 
     discard_1: function() {
       this.show_policy_1 = false
       this.discard_tracker += 1
-      //this.drawn_policies_temp.splice(0, 1)
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
         this.discard_tracker = 0
+        if (this.show_policy_2 == false) {
+          this.played_policy = this.drawn_policies[2]
+        } else if (this.show_policy_3 == false){
+          this.played_policy = this.drawn_policies[1]
+        }
+        this.play_policy()
       }
     },
     discard_2: function() {
       this.show_policy_2 = false
       this.discard_tracker += 1
-      //this.drawn_policies_temp.splice(1, 1)
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
         this.discard_tracker = 0
+        if (this.show_policy_1 == false) {
+          this.played_policy = this.drawn_policies[2]
+        } else if (this.show_policy_3 == false){
+          this.played_policy = this.drawn_policies[0]
+        }
+        this.play_policy()
       }
     },
     discard_3: function() {
       this.show_policy_3 = false
       this.discard_tracker += 1
-      //this.drawn_policies_temp.splice(2, 1)
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
         this.discard_tracker = 0
+        if (this.show_policy_1 == false) {
+          this.played_policy = this.drawn_policies[1]
+        } else if (this.show_policy_2 == false){
+          this.played_policy = this.drawn_policies[0]
+        }
+        this.play_policy()
+      }
+    },
+
+    play_policy: function() {
+      if (this.played_policy == "Fascist") {
+        this.fascist_slots[this.fascist_slot_tracker] = true
+        this.fascist_slot_tracker += 1
+      } else if ((this.played_policy == "Liberal")) {
+        this.liberal_slots[this.liberal_slot_tracker] = true
+        this.liberal_slot_tracker += 1
       }
     },
 
