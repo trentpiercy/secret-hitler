@@ -25,14 +25,33 @@
 
     #app {
       padding-top: 15px;
+      font-size: 200%;
+    }
+
+    #standard {
+      padding-top: 10px;
     }
 
     #role_text {
-      border: 3px solid #f7f7f9;
+      border: 5px solid #f7f7f9;
+      font-size: 500%;
+      padding: 10px;
+    }
+
+    #role_text_blank {
+      border: 5px solid #f7f7f9;
+      font-size: 500%;
+      padding: 10px;
+      color: #e0e0e0;
+      background-color: #e0e0e0;
     }
 
     #next_button {
-      padding-top: 5px;
+      padding-bottom: 10px;
+    }
+
+    #enter_btn {
+      margin-left: 10px;
     }
 
     </style>
@@ -45,21 +64,26 @@
     <div class="d-flex justify-content-center">
 
       <div class="container-fluid" id="inputplayers" v-show="show_inputplayers">
-        Input Number of Players (5-10)
-        <input v-model="num_players">        
-        <button type="button" class="btn btn-outline-success" @click="determine_players()">Enter</button>
+        <div class="d-flex justify-content-center">Input Number of Players (5-10)</div>
+        <div class="d-flex justify-content-center" id="standard">
+          <input v-model="num_players">
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="determine_players()">Enter</button>
+        </div>
       </div>
 
       <div class="container-fluid" id="roles" v-show="show_roles">
         <div class="container-fluid" id="rolecard" v-show="show_flip">
-          <button type="button" class="btn btn-outline-success" @click="flip">Flip Card</button>
+          <div class="d-flex justify-content-center" id="next_button">
+            <button type="button" class="btn btn-outline-warning btn-lg" @click="flip">Flip Card</button>
+          </div>
+          <div class="d-flex justify-content-center" id="role_text_blank">Blank1</div>
         </div>
 
         <div class="container-fluid" id="rolecard" v-show="show_rolecard">
-          <div class="d-flex justify-content-center" id="role_text">{{role}}</div>
-          <div id="next_button">
-            <button type="button" class="btn btn-outline-success" @click="next_role">Next</button>
+          <div class="d-flex justify-content-center" id="next_button">
+            <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
           </div>
+          <div class="d-flex justify-content-center" id="role_text">{{role}}</div>
         </div>
       </div>
 
