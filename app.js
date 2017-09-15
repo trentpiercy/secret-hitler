@@ -6,6 +6,11 @@ var app = new Vue({
     show_rolecard: false,
     show_flip: false,
     show_main: false,
+
+    show_fascist_5_6: false,
+    show_fascist_7_8: false,
+    show_fascist_9_10: false,
+
     num_players: "",
 
     num_liberal: "",
@@ -20,6 +25,7 @@ var app = new Vue({
     policies_list: [],
     drawn_policies: [],
 
+    show_policies: false,
     show_policy_1: false,
     show_policy_2: false,
     show_policy_3: false,
@@ -53,6 +59,14 @@ var app = new Vue({
 
         this.role = this.player_roles[this.current_player]
         this.randomize_policies()
+
+        if (this.num_players == 5 || this.num_players == 6) {
+          this.show_fascist_5_6 = true
+        } else if (this.num_players == 7 || this.num_players == 8) {
+          this.show_fascist_7_8 = true
+        } else if (this.num_players == 9 || this.num_players == 10) {
+          this.show_fascist_9_10 = true
+        }
       }
     },
 
@@ -104,6 +118,7 @@ var app = new Vue({
         this.randomize_policies()
         this.draw_3()
       }
+      this.show_policies = true
       this.show_policy_1 = true
       this.show_policy_2 = true
       this.show_policy_3 = true

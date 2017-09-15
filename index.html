@@ -70,18 +70,33 @@
     }
 
     #f_slot {
-      border: 4px solid #f7f7f9;
+      border: 4px solid #ff0000;
+      height: 75px;
+      width: 100%;
     }
 
     #l_slot {
       border: 4px solid #00ccff;
-      width: 15%;
-      height: 15%;
+      height: 75px;
+      width: 100%;
     }
 
     #policies {
       border: 4px solid #f7f7f9;
       padding: 20px;
+    }
+
+    #fascist_slots {
+      margin-bottom: 20px;
+      font-size: x-small;
+    }
+
+    #liberal_slots {
+      font-size: x-small;
+    }
+
+    #discard_text {
+      margin-top: 20px;
     }
 
     </style>
@@ -130,11 +145,48 @@
 
   <div class="container-fluid" id="main" v-show="show_main">
 
+    <div class="d-flex justify-content-center" id="liberal_slots">
+      <div class="container-fluid" id="l_slot"></div>
+      <div class="container-fluid" id="l_slot"></div>
+      <div class="container-fluid" id="l_slot"></div>
+      <div class="container-fluid" id="l_slot"></div>
+      <div class="container-fluid" id="l_slot">Liberals<br>Win</div>
+    </div>
+
+    <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_5_6">
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot">President examines top 3 cards</div>
+     <div class="container-fluid" id="f_slot">President must kill player</div>
+     <div class="container-fluid" id="f_slot">President must kill player. Veto unlocked</div>
+     <div class="container-fluid" id="f_slot"></div>
+    </div>
+
+    <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_7_8">
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+    </div>
+
+    <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_9_10">
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot"></div>
+    </div>
+
     <div class="d-flex justify-content-center">
       <button type="button" class="btn btn-outline-info btn-lg" @click="draw_3">Draw 3</button>
     </div>
 
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4>Tap to Discard</h4></div>
+
+    <div class="d-flex justify-content-center" v-if="show_policies">
       <div class="container-fluid" id="policies" v-show="show_policy_1" @click="discard_1">{{drawn_policies[0]}}</div>
       <div class="container-fluid" id="policies" v-show="show_policy_2" @click="discard_2">{{drawn_policies[1]}}</div>
       <div class="container-fluid" id="policies" v-show="show_policy_3" @click="discard_3">{{drawn_policies[2]}}</div>
