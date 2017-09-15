@@ -16,6 +16,14 @@ var app = new Vue({
 
     current_player: 0,
     role: "",
+
+    policies_list: [],
+    drawn_policies: [],
+
+    show_policy_1: false,
+    show_policy_2: false,
+    show_policy_3: false,
+
   },
 
   methods: {
@@ -44,26 +52,71 @@ var app = new Vue({
         }
 
         this.role = this.player_roles[this.current_player]
+        this.randomize_policies()
       }
     },
 
     next_role: function() {
-        if (this.current_player == this.num_players) {
-          this.show_roles = false
-          this.show_flip = false
-          this.show_main = true
-        } else {
-          this.show_flip = true
-        }
+      if (this.current_player == this.num_players) {
+        this.show_roles = false
+        this.show_flip = false
+        this.show_main = true
+      } else {
+        this.show_flip = true
+      }
 
-        this.show_rolecard = false
+      this.show_rolecard = false
     },
 
     flip: function() {
-        this.role = this.player_roles[this.current_player]
-        this.current_player += 1
-        this.show_rolecard = true
-        this.show_flip = false
+      this.role = this.player_roles[this.current_player]
+      this.current_player += 1
+      this.show_rolecard = true
+      this.show_flip = false
+    },
+
+    randomize_policies: function() {
+      this.policies_list = []
+      this.policies_list_temp = [
+      "Fascist","Fascist","Fascist","Fascist","Fascist","Fascist",
+      "Fascist","Fascist","Fascist","Fascist","Fascist",
+      "Liberal","Liberal","Liberal","Liberal","Liberal","Liberal"
+      ]
+      for (i = 0; i < 17; i++) {
+        r = Math.floor(Math.random()*(17-i))
+        this.policies_list.push(this.policies_list_temp[r])
+        this.policies_list_temp.splice(r, 1)
+      }
+
+      console.log(this.policies_list)
+    },
+
+    draw_3: function() {
+      this.drawn_policies = []
+      if (this.policies_list.length != 2) {
+        for (i = 0; i < 3; i++) {
+          r = Math.floor(Math.random()*(this.policies_list.length-i))
+          this.drawn_policies.push(this.policies_list[r])
+          this.policies_list.splice(r, 1)
+          console.log(this.policies_list.length)
+        }
+      } else {
+        this.randomize_policies()
+        this.draw_3()
+      }
+      this.show_policy_1 = true
+      this.show_policy_2 = true
+      this.show_policy_3 = true
+    },
+
+    discard_1: function() {
+      this.show_policy_1 = false
+    },
+    discard_2: function() {
+      this.show_policy_2 = false
+    },
+    discard_3: function() {
+      this.show_policy_3 = false
     },
 
   }
