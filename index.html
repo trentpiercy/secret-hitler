@@ -54,50 +54,73 @@
       margin-left: 10px;
     }
 
+    #inputplayers {
+      border: 4px solid #f7f7f9;
+      padding: 25px;
+    }
+
+    .container-fluid {
+      margin: 10px;
+    }
+
+    #playernum_field {
+      max-width: 150px;
+    }
+
     </style>
 
   </head>
 
-  <body>
-  <div id="app">
+<body>
+<div id="app">
 
-    <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center">
+    <div class="container-fluid" id="main_menu" v-show="show_inputplayers">
+
+      <div class="d-flex justify-content-center">
+        <h2>Secret Hitler</h2>
+      </div>
 
       <div class="container-fluid" id="inputplayers" v-show="show_inputplayers">
-        <div class="d-flex justify-content-center">Input Number of Players (5-10)</div>
+        <div class="d-flex justify-content-center"><h5>Number of Players (5-10)</h5></div>
         <div class="d-flex justify-content-center" id="standard">
-          <input v-model="num_players">
-          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="determine_players()">Enter</button>
+          <input v-model="num_players" id="playernum_field">
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="determine_players">Begin</button>
         </div>
       </div>
 
-      <div class="container-fluid" id="roles" v-show="show_roles">
-        <div class="container-fluid" id="rolecard" v-show="show_flip">
-          <div class="d-flex justify-content-center" id="next_button">
-            <button type="button" class="btn btn-outline-warning btn-lg" @click="flip">Flip Card</button>
-          </div>
-          <div class="d-flex justify-content-center" id="role_text_blank">Blank1</div>
-        </div>
-
-        <div class="container-fluid" id="rolecard" v-show="show_rolecard">
-          <div class="d-flex justify-content-center" id="next_button">
-            <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
-          </div>
-          <div class="d-flex justify-content-center" id="role_text">{{role}}</div>
-        </div>
+      <div class="container-fluid" id="help">
       </div>
 
-      <div class="container-fluid" id="main" v-show="show_main">
+    </div>
 
-        Main Board
-
+     <div class="container-fluid" id="roles" v-show="show_roles">
+      <div class="container-fluid" id="rolecard" v-show="show_flip">
+        <div class="d-flex justify-content-center" id="next_button">
+          <button type="button" class="btn btn-outline-warning btn-lg" @click="flip">Flip</button>
+        </div>
+        <div class="d-flex justify-content-center" id="role_text_blank" @click="flip">Blank1</div>
       </div>
+
+      <div class="container-fluid" id="rolecard" v-show="show_rolecard">
+        <div class="d-flex justify-content-center" id="next_button">
+          <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
+        </div>
+        <div class="d-flex justify-content-center" id="role_text" @click="next_role">{{role}}</div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="main" v-show="show_main">
+
+      Main Board
 
     </div>
 
   </div>
 
-  </body>
+</div>
+
+</body>
 
 <script type="text/javascript" src="app.js"></script>
 

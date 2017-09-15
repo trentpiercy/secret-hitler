@@ -38,9 +38,9 @@ var app = new Vue({
         }
 
         for (i = 0; i < this.num_players; i++) {
-          rand = Math.floor(Math.random()*(this.num_players-i))
-          this.player_roles.push(this.role_list[rand])
-          this.role_list.splice(rand, 1)
+          r = Math.floor(Math.random()*(this.num_players-i))
+          this.player_roles.push(this.role_list[r])
+          this.role_list.splice(r, 1)
         }
 
         this.role = this.player_roles[this.current_player]
