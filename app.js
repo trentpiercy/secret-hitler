@@ -115,7 +115,6 @@ var app = new Vue({
           this.drawn_policies.push(this.policies_list[r])
           this.policies_list.splice(r, 1)
         }
-        this.drawn_policies_temp = this.drawn_policies
       } else {
         this.randomize_policies()
         this.draw_3()
@@ -126,12 +125,13 @@ var app = new Vue({
       this.show_policy_3 = true
       this.num_policies_left = this.policies_list.length
       this.show_draw = false
+      this.drawn_policies_temp = this.drawn_policies
     },
 
     discard_1: function() {
       this.show_policy_1 = false
       this.discard_tracker += 1
-      this.drawn_policies_temp.splice(0, 1)
+      //this.drawn_policies_temp.splice(0, 1)
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -141,7 +141,7 @@ var app = new Vue({
     discard_2: function() {
       this.show_policy_2 = false
       this.discard_tracker += 1
-      this.drawn_policies_temp.splice(1, 1)
+      //this.drawn_policies_temp.splice(1, 1)
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -151,7 +151,7 @@ var app = new Vue({
     discard_3: function() {
       this.show_policy_3 = false
       this.discard_tracker += 1
-      this.drawn_policies_temp.splice(2, 1)
+      //this.drawn_policies_temp.splice(2, 1)
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
