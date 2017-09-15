@@ -23,7 +23,17 @@
 
     <style>
 
+    #app {
+      padding-top: 15px;
+    }
 
+    #role_text {
+      border: 3px solid #f7f7f9;
+    }
+
+    #next_button {
+      padding-top: 5px;
+    }
 
     </style>
 
@@ -35,16 +45,27 @@
     <div class="d-flex justify-content-center">
 
       <div class="container-fluid" id="inputplayers" v-show="show_inputplayers">
-
         Input Number of Players (5-10)
         <input v-model="num_players">        
         <button type="button" class="btn btn-outline-success" @click="determine_players()">Enter</button>
-
       </div>
 
-      <div class="container-fluid" id="rolecard" v-show="show_rolecard">
+      <div class="container-fluid" id="roles" v-show="show_roles">
+        <div class="container-fluid" id="rolecard" v-show="show_flip">
+          <button type="button" class="btn btn-outline-success" @click="flip">Flip Card</button>
+        </div>
 
+        <div class="container-fluid" id="rolecard" v-show="show_rolecard">
+          <div class="d-flex justify-content-center" id="role_text">{{role}}</div>
+          <div id="next_button">
+            <button type="button" class="btn btn-outline-success" @click="next_role">Next</button>
+          </div>
+        </div>
+      </div>
 
+      <div class="container-fluid" id="main" v-show="show_main">
+
+        Main Board
 
       </div>
 

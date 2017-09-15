@@ -2,34 +2,68 @@ var app = new Vue({
   el: '#app',
   data: {
     show_inputplayers: true,
+    show_roles: false,
     show_rolecard: false,
+    show_flip: false,
+    show_main: false,
     num_players: "",
+
     num_liberal: "",
     num_fascist: "",
-    num_hitler: 1,
+
+    player_roles: [],
+    role_list: [],
+
+    current_player: 0,
+    role: "",
   },
 
   methods: {
     determine_players: function() {
       if (this.num_players >= 5 && this.num_players <= 10) {
         this.num_players = Math.floor(this.num_players)
-        this.show_rolecard = true
+        this.show_roles = true
+        this.show_flip = true
         this.show_inputplayers = false
-        this.player_dict = {}
 
         this.num_liberal = Math.round(this.num_players*.6)
         this.num_fascist = this.num_players - this.num_liberal - 1
 
-        this.role_list = ["h"]
+        this.role_list = ["Hitler"]
         for (i = 0; i < this.num_liberal; i++) {
-          this.role_list // append
+          this.role_list.push("Liberal")
+        }
+        for (i = 0; i < this.num_fascist; i++) {
+          this.role_list.push("Fascist")
         }
 
+        for (i = 0; i < this.num_players; i++) {
+          rand = Math.floor(Math.random()*(this.num_players-i))
+          this.player_roles.push(this.role_list[rand])
+          this.role_list.splice(rand, 1)
+        }
 
-
-        console.log(this.num_liberal, this.num_fascist, this.num_hitler)
+        this.role = this.player_roles[this.current_player]
       }
+    },
 
+    next_role: function() {
+        if (this.current_player == this.num_players) {
+          this.show_roles = false
+          this.show_flip = false
+          this.show_main = true
+        } else {
+          this.show_flip = true
+        }
+
+        this.show_rolecard = false
+    },
+
+    flip: function() {
+        this.role = this.player_roles[this.current_player]
+        this.current_player += 1
+        this.show_rolecard = true
+        this.show_flip = false
     },
 
   }
