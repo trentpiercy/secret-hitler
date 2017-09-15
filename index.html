@@ -62,7 +62,7 @@
     }
 
     .container-fluid {
-      margin: 10px;
+      margin: 3px;
     }
 
     #playernum_field {
@@ -97,6 +97,10 @@
 
     #discard_text {
       margin-top: 20px;
+    }
+
+    #num_policies_left {
+      margin-top: 10px;
     }
 
     </style>
@@ -159,29 +163,35 @@
      <div class="container-fluid" id="f_slot">President examines top 3 cards</div>
      <div class="container-fluid" id="f_slot">President must kill player</div>
      <div class="container-fluid" id="f_slot">President must kill player. Veto unlocked</div>
-     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot">Fascists Win</div>
     </div>
 
     <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_7_8">
      <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot">President investigates an identity</div>
+     <div class="container-fluid" id="f_slot">Presedent chooses next President</div>
+     <div class="container-fluid" id="f_slot">President must kill player</div>
+     <div class="container-fluid" id="f_slot">President must kill player. Veto unlocked</div>
+     <div class="container-fluid" id="f_slot">Fascists Win</div>
     </div>
 
     <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_9_10">
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
-     <div class="container-fluid" id="f_slot"></div>
+     <div class="container-fluid" id="f_slot">President investigates an identity</div>
+     <div class="container-fluid" id="f_slot">President investigates an identity</div>
+     <div class="container-fluid" id="f_slot">Presedent chooses next President</div>
+     <div class="container-fluid" id="f_slot">President must kill player</div>
+     <div class="container-fluid" id="f_slot">President must kill player. Veto unlocked</div>
+     <div class="container-fluid" id="f_slot">Fascists Win</div>
     </div>
 
-    <div class="d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-info btn-lg" @click="draw_3">Draw 3</button>
+    <div class="container-fluid" v-show="show_draw">
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-info btn-lg" @click="draw_3">Draw 3</button>
+      </div>
+
+      <div class="d-flex justify-content-center" id="num_policies_left">
+        <h6>Polcies Left: {{num_policies_left}}</h6>
+      </div>
     </div>
 
     <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4>Tap to Discard</h4></div>

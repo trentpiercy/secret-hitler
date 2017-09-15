@@ -6,6 +6,7 @@ var app = new Vue({
     show_rolecard: false,
     show_flip: false,
     show_main: false,
+    show_draw: true,
 
     show_fascist_5_6: false,
     show_fascist_7_8: false,
@@ -24,6 +25,9 @@ var app = new Vue({
 
     policies_list: [],
     drawn_policies: [],
+    drawn_policies_temp: [],
+    discard_tracker: 0,
+    num_policies_left: 17,
 
     show_policies: false,
     show_policy_1: false,
@@ -101,8 +105,6 @@ var app = new Vue({
         this.policies_list.push(this.policies_list_temp[r])
         this.policies_list_temp.splice(r, 1)
       }
-
-      console.log(this.policies_list)
     },
 
     draw_3: function() {
@@ -112,8 +114,8 @@ var app = new Vue({
           r = Math.floor(Math.random()*(this.policies_list.length-i))
           this.drawn_policies.push(this.policies_list[r])
           this.policies_list.splice(r, 1)
-          console.log(this.policies_list.length)
         }
+        this.drawn_policies_temp = this.drawn_policies
       } else {
         this.randomize_policies()
         this.draw_3()
@@ -122,16 +124,39 @@ var app = new Vue({
       this.show_policy_1 = true
       this.show_policy_2 = true
       this.show_policy_3 = true
+      this.num_policies_left = this.policies_list.length
+      this.show_draw = false
     },
 
     discard_1: function() {
       this.show_policy_1 = false
+      this.discard_tracker += 1
+      this.drawn_policies_temp.splice(0, 1)
+      if (this.discard_tracker == 2) {
+        this.show_draw = true
+        this.show_policies = false
+        this.discard_tracker = 0
+      }
     },
     discard_2: function() {
       this.show_policy_2 = false
+      this.discard_tracker += 1
+      this.drawn_policies_temp.splice(1, 1)
+      if (this.discard_tracker == 2) {
+        this.show_draw = true
+        this.show_policies = false
+        this.discard_tracker = 0
+      }
     },
     discard_3: function() {
       this.show_policy_3 = false
+      this.discard_tracker += 1
+      this.drawn_policies_temp.splice(2, 1)
+      if (this.discard_tracker == 2) {
+        this.show_draw = true
+        this.show_policies = false
+        this.discard_tracker = 0
+      }
     },
 
   }
