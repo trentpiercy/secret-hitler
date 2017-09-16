@@ -49,6 +49,12 @@
       font-size: 250%;
     }
 
+    p {
+      text-align: center;
+      font-weight: 700;
+      font-size: x-small;
+    }
+
     #standard {
       padding-top: 10px;
     }
@@ -90,13 +96,13 @@
 
     #f_slot {
       border: 4px solid #ff0000;
-      height: 75px;
+      height: 85px;
       width: 100%;
     }
 
     #l_slot {
       border: 4px solid #00ccff;
-      height: 75px;
+      height: 65px;
       width: 100%;
     }
 
@@ -106,12 +112,10 @@
     }
 
     #fascist_slots {
-      margin-bottom: 20px;
-      font-size: x-small;
+      margin-bottom: 40px;
     }
 
     #liberal_slots {
-      font-size: x-small;
     }
 
     #discard_text {
@@ -119,7 +123,7 @@
     }
 
     #num_policies_left {
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     .l_filled {
@@ -181,51 +185,67 @@
 
   <div class="container-fluid" id="main" v-show="show_main">
 
-    <div class="d-flex justify-content-center" id="liberal_slots">
-      <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[0] }"></div>
-      <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[1] }"></div>
-      <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[2] }"></div>
-      <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[3] }"></div>
-      <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[4] }">Liberals<br>Win</div>
+    <div class="container-fluid" id="liberal_slots">
+      <div class="d-flex justify-content-center">
+        <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[0] }"></div>
+        <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[1] }"></div>
+        <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[2] }"></div>
+        <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[3] }"></div>
+        <div class="container-fluid" id="l_slot" v-bind:class="{ l_filled : liberal_slots[4] }">
+          <p>Liberals Win</p>
+        </div>
+      </div>
     </div>
 
-    <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_5_6">
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }"></div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }"></div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
-     President examines top 3 cards</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
-     President must kill player</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
-     President must kill player. Veto unlocked</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }">Fascists Win</div>
+    <div class="container-fluid" id="fascist_slots" v-if="show_fascist_5_6">
+      <div class="d-flex justify-content-center">
+        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }"></div>
+        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }"></div>
+        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
+        <p>President examines top 3 cards</p></div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
+        <p>President must kill player</p></div>
+        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
+        <p>President must kill player. Veto unlocked</p></div>
+        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }"><p>Fascists Win</p></div>
+      </div>
     </div>
 
-    <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_7_8">
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }"></div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
-     President investigates an identity</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
-     Presedent chooses next President</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
-     President must kill player</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
-     President must kill player. Veto unlocked</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }">Fascists Win</div>
+    <div class="container-fluid" id="fascist_slots" v-if="show_fascist_7_8">
+      <div class="d-flex justify-content-center">
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }"></div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
+       President investigates an identity</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
+       Presedent chooses next President</div>
+      </div>
+      <div class="d-flex justify-content-center">
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
+       President must kill player</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
+       President must kill player. Veto unlocked</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }">Fascists Win</div>
+      </div>
     </div>
 
-    <div class="d-flex justify-content-center" id="fascist_slots" v-if="show_fascist_9_10">
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }">
-     President investigates an identity</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
-     President investigates an identity</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
-     Presedent chooses next President</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
-     President must kill player</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
-     President must kill player. Veto unlocked</div>
-     <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }">Fascists Win</div>
+    <div class="container-fluid" id="fascist_slots" v-if="show_fascist_9_10">
+      <div class="d-flex justify-content-center">
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }">
+       President investigates an identity</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
+       President investigates an identity</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
+       Presedent chooses next President</div>
+      </div>
+      <div class="d-flex justify-content-center">
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
+       President must kill player</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
+       President must kill player. Veto unlocked</div>
+       <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }">Fascists Win</div>
+      </div>
     </div>
 
     <div class="container-fluid" v-show="show_draw">
@@ -234,16 +254,16 @@
       </div>
 
       <div class="d-flex justify-content-center" id="num_policies_left">
-        <h6>Polcies Left: {{num_policies_left}}</h6>
+        <h6><b>Polcies Left: {{num_policies_left}}</b></h6>
       </div>
     </div>
 
     <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
 
     <div class="d-flex justify-content-center" v-if="show_policies">
-      <div class="container-fluid" id="policies" v-show="show_policy_1" @click="discard_1">{{drawn_policies[0]}}</div>
-      <div class="container-fluid" id="policies" v-show="show_policy_2" @click="discard_2">{{drawn_policies[1]}}</div>
-      <div class="container-fluid" id="policies" v-show="show_policy_3" @click="discard_3">{{drawn_policies[2]}}</div>
+      <div class="container-fluid" id="policies" v-show="show_policy_1" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
+      <div class="container-fluid" id="policies" v-show="show_policy_2" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
+      <div class="container-fluid" id="policies" v-show="show_policy_3" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
     </div>
 
   </div>
