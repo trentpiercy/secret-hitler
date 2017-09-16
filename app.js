@@ -42,6 +42,32 @@ var app = new Vue({
   },
 
   methods: {
+
+    start_5: function() {
+      this.num_players = 5
+      this.determine_players()
+    },
+    start_6: function() {
+      this.num_players = 6
+      this.determine_players()
+    },
+    start_7: function() {
+      this.num_players = 7
+      this.determine_players()
+    },
+    start_8: function() {
+      this.num_players = 8
+      this.determine_players()
+    },
+    start_9: function() {
+      this.num_players = 9
+      this.determine_players()
+    },
+    start_10: function() {
+      this.num_players = 10
+      this.determine_players()
+    },
+
     determine_players: function() {
       if (this.num_players >= 5 && this.num_players <= 10) {
         this.num_players = Math.floor(this.num_players)

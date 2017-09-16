@@ -37,8 +37,16 @@
 
     #app {
       padding-top: 15px;
-      font-size: 100%;
-      font-family: "futura-pt", sans-serif;
+      font-family: courier-prime, sans-serif;
+    }
+
+    .btn {
+      font-family: courier-prime, sans-serif;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 250%;
     }
 
     #standard {
@@ -49,16 +57,14 @@
       border: 5px solid #f7f7f9;
       font-size: 300%;
       margin: 10px;
-      padding: 20px;
+      padding: 50px;
     }
 
     #role_text_blank {
       border: 5px solid #f7f7f9;
-      font-size: 300%;
       margin: 10px;
-      padding: 20px;
-      color: white;
-      background-color: white;
+      width: 315px;
+      height: 185px;
     }
 
     #next_button {
@@ -134,14 +140,20 @@
     <div class="container-fluid" id="main_menu" v-show="show_inputplayers">
 
       <div class="d-flex justify-content-center">
-        <h2>Secret Hitler</h2>
+        <h2><b>Secret Hitler</b></h2>
       </div>
 
       <div class="container-fluid" id="inputplayers" v-show="show_inputplayers">
-        <div class="d-flex justify-content-center"><h5>Number of Players (5-10)</h5></div>
+        <div class="d-flex justify-content-center"><h5><b>Number of Players</b></h5></div>
         <div class="d-flex justify-content-center" id="standard">
-          <input v-model="num_players" id="playernum_field">
-          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="determine_players">Begin</button>
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="start_5">Five</button>
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="start_6">Six</button>
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="start_7">Seven</button>
+        </div>
+        <div class="d-flex justify-content-center" id="standard">
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="start_8">Eight</button>
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="start_9">Nine</button>
+          <button type="button" class="btn btn-outline-success btn-lg" id="enter_btn" @click="start_10">Ten</button>
         </div>
       </div>
 
@@ -155,14 +167,14 @@
         <div class="d-flex justify-content-center" id="next_button">
           <button type="button" class="btn btn-outline-warning btn-lg" @click="flip">Flip</button>
         </div>
-        <div class="d-flex justify-content-center" id="role_text_blank" @click="flip">Blank1</div>
+        <div class="d-flex justify-content-center" id="role_text_blank" @click="flip"></div>
       </div>
 
       <div class="container-fluid" id="rolecard" v-show="show_rolecard">
         <div class="d-flex justify-content-center" id="next_button">
           <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
         </div>
-        <div class="d-flex justify-content-center" id="role_text" @click="next_role">{{role}}</div>
+        <div class="d-flex justify-content-center" id="role_text" @click="next_role"><b>{{role}}</b></div>
       </div>
     </div>
   </div>
@@ -226,7 +238,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4>Tap to Discard</h4></div>
+    <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
 
     <div class="d-flex justify-content-center" v-if="show_policies">
       <div class="container-fluid" id="policies" v-show="show_policy_1" @click="discard_1">{{drawn_policies[0]}}</div>
