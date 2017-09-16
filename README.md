@@ -1,6 +1,5 @@
-# secret-hitler
+## secret-hitler
 Digital Replacement for Secret Hitler Game Set
-Made for Mobile
 
 ### Function
 Local - Play the game in person off one phone
