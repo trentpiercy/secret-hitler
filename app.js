@@ -28,6 +28,7 @@ var app = new Vue({
     discard_tracker: 0,
     num_policies_left: 17,
     played_policy: "",
+    played_policy_list: [],
 
     liberal_slots: [false, false, false, false, false],
     fascist_slots: [false, false, false, false, false, false],
@@ -42,7 +43,6 @@ var app = new Vue({
   },
 
   methods: {
-
     start_5: function() {
       this.num_players = 5
       this.determine_players()
@@ -129,18 +129,27 @@ var app = new Vue({
       this.policies_list_temp = [
       "Fascist","Fascist","Fascist","Fascist","Fascist","Fascist",
       "Fascist","Fascist","Fascist","Fascist","Fascist",
-      "Liberal","Liberal","Liberal","Liberal","Liberal","Liberal"
-      ]
+      "Liberal","Liberal","Liberal","Liberal","Liberal","Liberal"]
+
       for (i = 0; i < 17; i++) {
         r = Math.floor(Math.random()*(17-i))
         this.policies_list.push(this.policies_list_temp[r])
         this.policies_list_temp.splice(r, 1)
       }
+
+      for (i = 0; i < this.played_policy_list.length; i++) {
+        index = this.policies_list.indexOf(this.played_policy_list[i])
+        if (index > -1) {
+          this.policies_list.splice(index, 1)
+        }
+      }
+      this.played_policy_list = []
     },
 
     draw_3: function() {
       this.drawn_policies = []
-      if (this.policies_list.length != 2) {
+      console.log(this.policies_list)
+      if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
           r = Math.floor(Math.random()*(this.policies_list.length-i))
           this.drawn_policies.push(this.policies_list[r])
@@ -208,9 +217,11 @@ var app = new Vue({
       if (this.played_policy == "Fascist") {
         this.fascist_slots[this.fascist_slot_tracker] = true
         this.fascist_slot_tracker += 1
+        this.played_policy_list.push("Fascist")
       } else if ((this.played_policy == "Liberal")) {
         this.liberal_slots[this.liberal_slot_tracker] = true
         this.liberal_slot_tracker += 1
+        this.played_policy_list.push("Liberal")
       }
     },
 
