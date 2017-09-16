@@ -12,6 +12,8 @@ var app = new Vue({
     show_fascist_7_8: false,
     show_fascist_9_10: false,
 
+    examined: false,
+
     num_players: "",
 
     num_liberal: "",
@@ -156,9 +158,8 @@ var app = new Vue({
       console.log(this.policies_list)
       if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
-          r = Math.floor(Math.random()*(this.policies_list.length-i))
-          this.drawn_policies.push(this.policies_list[r])
-          this.policies_list.splice(r, 1)
+          this.drawn_policies.push(this.policies_list[0])
+          this.policies_list.splice(0, 1)
         }
         console.log(this.policies_list)
       } else {
@@ -229,6 +230,10 @@ var app = new Vue({
         this.liberal_slots[this.liberal_slot_tracker] = true
         this.liberal_slot_tracker += 1
         this.played_policy_list.push("Liberal")
+      }
+
+      if (this.fascist_slots[2] && this.show_fascist_5_6 && this.examined == false) {
+        this.examined = true
       }
     },
 
