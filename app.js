@@ -34,6 +34,7 @@ var app = new Vue({
     policies_list: [],
     drawn_policies: [],
     discard_tracker: 0,
+    num_policies_discarded: 0,
     num_policies_left: 17,
     played_policy: "",
     played_policy_list: [],
@@ -158,6 +159,7 @@ var app = new Vue({
 
       this.policies_list = []
       this.policies_list_length = this.policies_list_temp.length
+      this.num_policies_discarded = 0
 
       //console.log("static length: " + this.policies_list_length)
 
@@ -206,6 +208,7 @@ var app = new Vue({
     discard_1: function() {
       this.show_policy_1 = false
       this.discard_tracker += 1
+      this.num_policies_discarded += 1
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -221,6 +224,7 @@ var app = new Vue({
     discard_2: function() {
       this.show_policy_2 = false
       this.discard_tracker += 1
+      this.num_policies_discarded += 1
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -236,6 +240,7 @@ var app = new Vue({
     discard_3: function() {
       this.show_policy_3 = false
       this.discard_tracker += 1
+      this.num_policies_discarded += 1
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
