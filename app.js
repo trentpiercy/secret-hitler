@@ -15,6 +15,8 @@ var app = new Vue({
     show_shuffle: false,
     show_veto: false,
 
+    enable_veto: false,
+
     show_fascist_5_6: false,
     show_fascist_7_8: false,
     show_fascist_9_10: false,
@@ -202,6 +204,9 @@ var app = new Vue({
         }
         //console.log(this.policies_list)
       }
+      if (this.enable_veto) {
+        this.show_veto = true
+      }
       this.num_policies_left = this.policies_list.length
     },
 
@@ -264,6 +269,7 @@ var app = new Vue({
         this.played_policy_list.push("Fascist")
         if (this.fascist_slot_tracker == 5) {
           this.show_veto = true
+          this.enable_veto = true
         }
         if (this.fascist_slot_tracker == 6) {
           this.fascist_win()
