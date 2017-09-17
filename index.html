@@ -150,6 +150,16 @@
       margin-top: 15px; 
     }
 
+    .l_color {
+      color: #0275D8;
+    }
+    .f_color {
+      color: #D9534F;
+    }
+    .h_color {
+      color: #F0AD4E;
+    }
+
     </style>
 
   </head>
@@ -195,7 +205,7 @@
       </div>
 
       <div class="container-fluid" id="rolecard" v-show="show_rolecard">
-        <div class="d-flex justify-content-center" id="role_text" @click="next_role"><b>{{role}}</b></div>
+        <div class="d-flex justify-content-center" id="role_text" v-bind:class="{ f_color : (role=='Fascist'), l_color : (role=='Liberal'), h_color : (role=='Hitler') }" @click="next_role"><b>{{role}}</b></div>
         <div class="d-flex justify-content-center" id="next_button">
           <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
         </div>
@@ -288,19 +298,19 @@
         <button type="button" class="btn btn-outline-info btn-lg" @click="randomize_policies">Shuffle Deck</button>
       </div>
       <div class="d-flex justify-content-center" id="num_policies_left">
-        <h6><b>{{num_policies_left}} Polcies Left in Deck</b></h6>
+        <h6><b><font color="#0275D8">{{num_policies_left}}</font> Polcies Left in Deck</b></h6>
       </div>
       <div class="d-flex justify-content-center" id="num_policies_left" style="margin-top: -5px">
-        <h6><b>{{num_policies_discarded}} Polcies in Discard</b></h6>
+        <h6><b><font color="#D9534F">{{num_policies_discarded}}</font> Polcies in Discard</b></h6>
       </div>
     </div>
 
     <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
 
     <div class="d-flex justify-content-center" v-if="show_policies">
-      <div class="container-fluid" id="policies" v-show="show_policy_1" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
-      <div class="container-fluid" id="policies" v-show="show_policy_2" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
-      <div class="container-fluid" id="policies" v-show="show_policy_3" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
+      <div class="container-fluid" id="policies" v-show="show_policy_1" v-bind:class="{ f_color : (drawn_policies[0]=='Fascist'), l_color : (drawn_policies[0]=='Liberal') }" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
+      <div class="container-fluid" id="policies" v-show="show_policy_2" v-bind:class="{ f_color : (drawn_policies[1]=='Fascist'), l_color : (drawn_policies[1]=='Liberal') }" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
+      <div class="container-fluid" id="policies" v-show="show_policy_3" v-bind:class="{ f_color : (drawn_policies[2]=='Fascist'), l_color : (drawn_policies[2]=='Liberal') }" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
     </div>
 
     <div class="container-fluid" v-if="show_policies">
@@ -329,9 +339,9 @@
       <div class="container-fluid" v-if="show_examine2" @click="dismiss_examine" style="margin-top: 15px;">
         <div class="d-flex justify-content-center"><h4><b>Dismiss Cards</b></h4></div>
         <div class="d-flex justify-content-center">
-          <div class="container-fluid" id="policies"><b>{{policies_list[0]}}</b></div>
-          <div class="container-fluid" id="policies"><b>{{policies_list[1]}}</b></div>
-          <div class="container-fluid" id="policies"><b>{{policies_list[2]}}</b></div>
+          <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal') }"><b>{{policies_list[0]}}</b></div>
+          <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[1]=='Fascist'), l_color : (policies_list[1]=='Liberal') }"><b>{{policies_list[1]}}</b></div>
+          <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[2]=='Fascist'), l_color : (policies_list[2]=='Liberal') }"><b>{{policies_list[2]}}</b></div>
         </div>
       </div>
     </div>
