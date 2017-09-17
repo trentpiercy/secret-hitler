@@ -140,7 +140,7 @@ var app = new Vue({
     },
 
     randomize_policies: function() {
-      console.log("randomizing")
+      //console.log("randomizing")
 
       this.policies_list_temp = [
       "Fascist","Fascist","Fascist","Fascist","Fascist","Fascist",
@@ -149,17 +149,17 @@ var app = new Vue({
 
       for (i = 0; i < this.played_policy_list.length; i++) {
         index = this.policies_list.indexOf(this.played_policy_list[i])
-        console.log("cutting index: " + index)
+        //console.log("cutting index: " + index)
         this.policies_list_temp.splice(index, 1)
       }
 
       this.policies_list = []
       this.policies_list_length = this.policies_list_temp.length
 
-      console.log("static length: " + this.policies_list_length)
+      //console.log("static length: " + this.policies_list_length)
 
       for (i = 0; i < this.policies_list_length; i++) {
-        console.log("pushing policies to list")
+        //console.log("pushing policies to list")
         r = Math.floor(Math.random()*(this.policies_list_length-i))
         this.policies_list.push(this.policies_list_temp[r])
         this.policies_list_temp.splice(r, 1)
@@ -168,7 +168,7 @@ var app = new Vue({
 
     draw_3: function() {
       this.drawn_policies = []
-      console.log(this.policies_list)
+      //console.log(this.policies_list)
       if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
           this.drawn_policies.push(this.policies_list[0])
@@ -178,7 +178,7 @@ var app = new Vue({
       } else {
         this.randomize_policies()
         this.draw_3()
-        console.log("randomized and redrew")
+        //console.log("randomized and redrew")
       }
       this.show_policies = true
       this.show_policy_1 = true
