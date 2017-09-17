@@ -9,6 +9,9 @@ var app = new Vue({
     show_draw: true,
     show_fascist_win: false,
     show_liberal_win: false,
+    show_examine_all: false,
+    show_examine1: false,
+    show_examine2: false,
 
     show_fascist_5_6: false,
     show_fascist_7_8: false,
@@ -17,7 +20,6 @@ var app = new Vue({
     examined: false,
 
     num_players: "",
-
     num_liberal: "",
     num_fascist: "",
 
@@ -251,7 +253,14 @@ var app = new Vue({
 
       if (this.fascist_slots[2] && this.show_fascist_5_6 && this.examined == false) {
         this.examined = true
+        this.show_examine_all = true
+        this.show_examine1 = true
       }
+    },
+
+    show_next_examine: function() {
+      this.show_examine1 = false
+      this.show_examine2 = true
     },
 
   }
