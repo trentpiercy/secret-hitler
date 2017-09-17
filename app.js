@@ -149,8 +149,9 @@ var app = new Vue({
       "Liberal","Liberal","Liberal","Liberal","Liberal","Liberal"]
 
       for (i = 0; i < this.played_policy_list.length; i++) {
-        index = this.policies_list.indexOf(this.played_policy_list[i])
-        //console.log("cutting index: " + index)
+        index = this.policies_list_temp.indexOf(this.played_policy_list[i])
+        console.log("cutting item: " + this.played_policy_list[i])
+        console.log("cutting from temp: " + this.policies_list_temp[index])
         this.policies_list_temp.splice(index, 1)
       }
 
@@ -168,6 +169,7 @@ var app = new Vue({
       this.show_draw = true
       this.show_shuffle = false
       this.num_policies_left = this.policies_list.length
+      console.log(this.policies_list)
     },
 
     draw_3: function() {
