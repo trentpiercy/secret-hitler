@@ -297,6 +297,12 @@
       <div class="container-fluid" id="policies" v-show="show_policy_3" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
     </div>
 
+    <div class="container-fluid" v-if="show_policies">
+      <div class="d-flex justify-content-center" @click="veto" v-if="show_veto">
+        <button type="button" class="btn btn-outline-danger btn-lg" style="margin-top: 10px;" @click="veto">Veto</button>
+      </div>
+    </div>
+
     <div class="d-flex justify-content-center" v-if="show_liberal_win">
       <div class="container-fluid">
         <h3><b>Liberals Win!</b></h3><p class="small">Refresh to play again</p>

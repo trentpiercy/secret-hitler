@@ -13,6 +13,7 @@ var app = new Vue({
     show_examine1: false,
     show_examine2: false,
     show_shuffle: false,
+    show_veto: false,
 
     show_fascist_5_6: false,
     show_fascist_7_8: false,
@@ -150,8 +151,8 @@ var app = new Vue({
 
       for (i = 0; i < this.played_policy_list.length; i++) {
         index = this.policies_list_temp.indexOf(this.played_policy_list[i])
-        console.log("cutting item: " + this.played_policy_list[i])
-        console.log("cutting from temp: " + this.policies_list_temp[index])
+        //console.log("cutting item: " + this.played_policy_list[i])
+        //console.log("cutting from temp: " + this.policies_list_temp[index])
         this.policies_list_temp.splice(index, 1)
       }
 
@@ -169,7 +170,19 @@ var app = new Vue({
       this.show_draw = true
       this.show_shuffle = false
       this.num_policies_left = this.policies_list.length
-      console.log(this.policies_list)
+      //console.log(this.policies_list)
+    },
+
+    veto: function() {
+      this.show_policies = false
+      this.show_policy_1 = false
+      this.show_policy_2 = false
+      this.show_policy_3 = false
+      this.show_draw = true
+      if (this.policies_list.length < 3) {
+        this.show_shuffle = true
+        this.show_draw = false
+      }
     },
 
     draw_3: function() {
@@ -179,13 +192,13 @@ var app = new Vue({
       this.show_policy_2 = true
       this.show_policy_3 = true
       this.show_draw = false
-      console.log(this.policies_list)
+      //console.log(this.policies_list)
       if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
           this.drawn_policies.push(this.policies_list[0])
           this.policies_list.splice(0, 1)
         }
-        console.log(this.policies_list)
+        //console.log(this.policies_list)
       }
       this.num_policies_left = this.policies_list.length
     },
@@ -241,6 +254,9 @@ var app = new Vue({
         this.fascist_slots[this.fascist_slot_tracker] = true
         this.fascist_slot_tracker += 1
         this.played_policy_list.push("Fascist")
+        if (this.fascist_slot_tracker == 5) {
+          this.show_veto = true
+        }
         if (this.fascist_slot_tracker == 6) {
           this.fascist_win()
         }
@@ -285,24 +301,3 @@ var app = new Vue({
   }
 
 })
-
-
-
-/* Game Layout
-http://www.secrethitler.com/assets/Secret_Hitler_Rules.pdf
-
-Input number of players
-Randomize role for each player
-Show blank card
-Tap to turn over - show role
-Tap again to dismiss - pull up new blank card
-Repeat for all players
-
-Show board and draw pile
-Tap draw pile to pull up 3 cards
-Tap card to dismiss 1
-Hand to chancellor - taps to dismiss 1 of 2
-Last card goes to board
-Repeat
-
-*/
