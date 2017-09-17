@@ -165,13 +165,18 @@ var app = new Vue({
         this.policies_list.push(this.policies_list_temp[r])
         this.policies_list_temp.splice(r, 1)
       }
-
       this.show_draw = true
       this.show_shuffle = false
+      this.num_policies_left = this.policies_list.length
     },
 
     draw_3: function() {
       this.drawn_policies = []
+      this.show_policies = true
+      this.show_policy_1 = true
+      this.show_policy_2 = true
+      this.show_policy_3 = true
+      this.show_draw = false
       console.log(this.policies_list)
       if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
@@ -179,17 +184,8 @@ var app = new Vue({
           this.policies_list.splice(0, 1)
         }
         console.log(this.policies_list)
-      } else {
-        this.show_draw = false
-        this.show_shuffle = true
-        //console.log("randomized and redrew")
       }
-      this.show_policies = true
-      this.show_policy_1 = true
-      this.show_policy_2 = true
-      this.show_policy_3 = true
       this.num_policies_left = this.policies_list.length
-      this.show_draw = false
     },
 
     discard_1: function() {
@@ -260,6 +256,17 @@ var app = new Vue({
         this.show_examine_all = true
         this.show_examine1 = true
         this.show_draw = false
+
+      this.num_policies_left = this.policies_list.length
+      }
+
+      if (this.num_policies_left < 3) {
+        this.show_shuffle = true
+        this.show_draw = false
+        this.show_policies = false
+        this.show_policy_1 = false
+        this.show_policy_2 = false
+        this.show_policy_3 = false
       }
     },
 
