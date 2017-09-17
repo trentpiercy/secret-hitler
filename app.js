@@ -7,6 +7,8 @@ var app = new Vue({
     show_flip: false,
     show_main: false,
     show_draw: true,
+    show_fascist_win: false,
+    show_liberal_win: false,
 
     show_fascist_5_6: false,
     show_fascist_7_8: false,
@@ -68,6 +70,15 @@ var app = new Vue({
     start_10: function() {
       this.num_players = 10
       this.determine_players()
+    },
+
+    fascist_win: function() {
+      this.show_draw = false
+      this.show_fascist_win = true
+    },
+    liberal_win: function() {
+      this.show_draw = false
+      this.show_liberal_win = true
     },
 
     determine_players: function() {
@@ -226,10 +237,16 @@ var app = new Vue({
         this.fascist_slots[this.fascist_slot_tracker] = true
         this.fascist_slot_tracker += 1
         this.played_policy_list.push("Fascist")
+        if (this.fascist_slot_tracker == 6) {
+          this.fascist_win()
+        }
       } else if ((this.played_policy == "Liberal")) {
         this.liberal_slots[this.liberal_slot_tracker] = true
         this.liberal_slot_tracker += 1
         this.played_policy_list.push("Liberal")
+        if (this.liberal_slot_tracker == 5) {
+          this.liberal_win()
+        }
       }
 
       if (this.fascist_slots[2] && this.show_fascist_5_6 && this.examined == false) {

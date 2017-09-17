@@ -158,7 +158,7 @@
 <div id="app">
 
   <div class="d-flex justify-content-center">
-    <h2><b>Secret Hitler</b></h2></hr>
+    <h2><b>Secret Hitler</b></h2>
   </div>
 
   <div class="d-flex justify-content-center">
@@ -238,7 +238,7 @@
       <div class="d-flex justify-content-center">
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[0] }"></div>
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
-       <p>President investigates an identity></p></div>
+       <p>President investigates an identity</p></div>
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
        <p>Presedent chooses next President</p></div>
       </div>
@@ -277,7 +277,6 @@
       <div class="d-flex justify-content-center" id="num_policies_left">
         <h6><b>{{num_policies_left}} Polcies Left in Deck</b></h6>
       </div>
-
     </div>
 
     <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
@@ -286,6 +285,17 @@
       <div class="container-fluid" id="policies" v-show="show_policy_1" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
       <div class="container-fluid" id="policies" v-show="show_policy_2" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
       <div class="container-fluid" id="policies" v-show="show_policy_3" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
+    </div>
+
+    <div class="d-flex justify-content-center" v-if="show_liberal_win">
+      <div class="container-fluid">
+        <h3><b>Liberals Win!</b></h3><p class="small">Refresh to play again</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center" v-if="show_fascist_win">
+      <div class="container-fluid">
+        <h3><b>Fascists Win!</b></h3><p class="small">Refresh to play again</p>
+      </div>
     </div>
 
   </div>
