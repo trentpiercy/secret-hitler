@@ -12,6 +12,7 @@ var app = new Vue({
     show_examine_all: false,
     show_examine1: false,
     show_examine2: false,
+    show_shuffle: false,
 
     show_fascist_5_6: false,
     show_fascist_7_8: false,
@@ -164,11 +165,14 @@ var app = new Vue({
         this.policies_list.push(this.policies_list_temp[r])
         this.policies_list_temp.splice(r, 1)
       }
+
+      this.show_draw = true
+      this.show_shuffle = false
     },
 
     draw_3: function() {
       this.drawn_policies = []
-      //console.log(this.policies_list)
+      console.log(this.policies_list)
       if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
           this.drawn_policies.push(this.policies_list[0])
@@ -176,8 +180,8 @@ var app = new Vue({
         }
         console.log(this.policies_list)
       } else {
-        this.randomize_policies()
-        this.draw_3()
+        this.show_draw = false
+        this.show_shuffle = true
         //console.log("randomized and redrew")
       }
       this.show_policies = true

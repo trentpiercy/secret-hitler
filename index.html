@@ -274,6 +274,10 @@
         <button type="button" class="btn btn-outline-info btn-lg" @click="draw_3">Draw 3</button>
       </div>
 
+      <div class="d-flex justify-content-center" v-show="show_shuffle">
+        <button type="button" class="btn btn-outline-info btn-lg" @click="randomize_policies">Shuffle Deck</button>
+      </div>
+
       <div class="d-flex justify-content-center" id="num_policies_left">
         <h6><b>{{num_policies_left}} Polcies Left in Deck</b></h6>
       </div>
