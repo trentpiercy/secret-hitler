@@ -1,6 +1,5 @@
 # secret-hitler
-Mobile Replacement for Secret Hitler Game Set  
-Mobile First
+Mobile-First replacement for physical Secret Hitler board and cards
 
 ### Function
 Local - Play the game in person off one phone  
