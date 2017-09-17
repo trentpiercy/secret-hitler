@@ -206,6 +206,7 @@ var app = new Vue({
     },
 
     discard_1: function() {
+      this.show_veto = false
       this.show_policy_1 = false
       this.discard_tracker += 1
       this.num_policies_discarded += 1
@@ -222,6 +223,7 @@ var app = new Vue({
       }
     },
     discard_2: function() {
+      this.show_veto = false
       this.show_policy_2 = false
       this.discard_tracker += 1
       this.num_policies_discarded += 1
@@ -238,6 +240,7 @@ var app = new Vue({
       }
     },
     discard_3: function() {
+      this.show_veto = false
       this.show_policy_3 = false
       this.discard_tracker += 1
       this.num_policies_discarded += 1
