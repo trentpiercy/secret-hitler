@@ -255,6 +255,7 @@ var app = new Vue({
         this.examined = true
         this.show_examine_all = true
         this.show_examine1 = true
+        this.show_draw = false
       }
     },
 
@@ -262,6 +263,11 @@ var app = new Vue({
       this.show_examine1 = false
       this.show_examine2 = true
     },
+
+    dismiss_examine: function() {
+      this.show_examine_all = false
+      this.show_draw = true
+    }
 
   }
 
