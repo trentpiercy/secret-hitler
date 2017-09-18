@@ -283,16 +283,19 @@ var app = new Vue({
         }
       }
 
+      examining = false
       if (this.fascist_slots[2] && this.show_fascist_5_6 && this.examined == false) {
         this.examined = true
+        examining = true
         this.show_examine_all = true
         this.show_examine1 = true
         this.show_draw = false
+        this.show_shuffle = false
 
       this.num_policies_left = this.policies_list.length
       }
 
-      if (this.num_policies_left < 3) {
+      if (this.num_policies_left < 3 && examining == false) {
         this.show_shuffle = true
         this.show_draw = false
         this.show_policies = false
@@ -309,7 +312,11 @@ var app = new Vue({
 
     dismiss_examine: function() {
       this.show_examine_all = false
-      this.show_draw = true
+      if (this.num_policies_left < 3) {
+        this.show_shuffle = true
+      } else {
+        this.show_draw = true
+      }
     }
 
   }
