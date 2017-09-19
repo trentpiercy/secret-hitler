@@ -1,6 +1,6 @@
 # secret-hitler
 **[trentpiercy.github.io/secret-hitler](https://trentpiercy.github.io/secret-hitler/)**   
-Mobile-First replacement for physical Secret Hitler board and cards
+Mobile-First vue.js WebApp replacement for physical Secret Hitler board and cards
 
 ### Function
 - Local - play the game in person with just one phone 
