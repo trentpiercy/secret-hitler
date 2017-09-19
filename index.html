@@ -64,6 +64,14 @@
       padding-top: 10px;
     }
 
+    #rt_size {
+      font-size: 300%;
+      margin: 10px;
+      padding-top: 15%;
+      width: 315px;
+      height: 185px;
+    }
+
     #role_text {
       border: 5px solid #f7f7f9;
       font-size: 300%;
@@ -115,8 +123,10 @@
     }
 
     #policies {
-      border: 4px solid #f7f7f9;
-      padding: 20px;
+      padding: 25px;
+      margin-left: 3px;
+      margin-right: 3px;
+      background: white;
     }
 
     #fascist_slots {
@@ -190,18 +200,19 @@
       <p class="small"><b>Credit to <a href="http://secrethitler.com" target="_blank">secrethiter.com</a></br>Creative Commons BY-NC-SA 4.0</b></p>
       </p>
       </div>
+
     </div>
 
      <div class="container-fluid" id="roles" v-show="show_roles">
       <div class="container-fluid" id="rolecard" v-show="show_flip">
-        <div class="d-flex justify-content-center" id="role_text_blank" @click="flip"></div>
+        <div class="card card-inverse mb-3 text-center" id="rt_size" style="background-color: white; color: black;" @click="flip"></div>
         <div class="d-flex justify-content-center" id="next_button">
           <button type="button" class="btn btn-outline-warning btn-lg" @click="flip">Flip</button>
         </div>
       </div>
 
       <div class="container-fluid" id="rolecard" v-show="show_rolecard">
-        <div class="d-flex justify-content-center" id="role_text" v-bind:class="{ f_color : (role=='Fascist'), l_color : (role=='Liberal'), h_color : (role=='Hitler') }" @click="next_role"><b>{{role}}</b></div>
+        <div class="card card-inverse mb-3 text-center" id="rt_size" style="background-color: white;" v-bind:class="{ f_color : (role=='Fascist'), l_color : (role=='Liberal'), h_color : (role=='Hitler'), 'card-primary' : (role=='Liberal'), 'card-danger' : (role=='Fascist'), 'card-warning' : (role=='Hitler') }" @click="next_role"><b>{{role}}</b></div>
         <div class="d-flex justify-content-center" id="next_button">
           <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
         </div>
@@ -304,9 +315,9 @@
     <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
 
     <div class="d-flex justify-content-center" v-if="show_policies">
-      <div class="container-fluid" id="policies" v-show="show_policy_1" v-bind:class="{ f_color : (drawn_policies[0]=='Fascist'), l_color : (drawn_policies[0]=='Liberal') }" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
-      <div class="container-fluid" id="policies" v-show="show_policy_2" v-bind:class="{ f_color : (drawn_policies[1]=='Fascist'), l_color : (drawn_policies[1]=='Liberal') }" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
-      <div class="container-fluid" id="policies" v-show="show_policy_3" v-bind:class="{ f_color : (drawn_policies[2]=='Fascist'), l_color : (drawn_policies[2]=='Liberal') }" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
+      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_1" v-bind:class="{ f_color : (drawn_policies[0]=='Fascist'), l_color : (drawn_policies[0]=='Liberal'), 'card-primary' : (drawn_policies[0]=='Liberal'), 'card-danger' : (drawn_policies[0]=='Fascist') }" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
+      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_2" v-bind:class="{ f_color : (drawn_policies[1]=='Fascist'), l_color : (drawn_policies[1]=='Liberal'), 'card-primary' : (drawn_policies[1]=='Liberal'), 'card-danger' : (drawn_policies[1]=='Fascist') }" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
+      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_3" v-bind:class="{ f_color : (drawn_policies[2]=='Fascist'), l_color : (drawn_policies[2]=='Liberal'), 'card-primary' : (drawn_policies[2]=='Liberal'), 'card-danger' : (drawn_policies[2]=='Fascist') }" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
     </div>
 
     <div class="container-fluid" v-if="show_policies">
@@ -328,14 +339,14 @@
 
     <div class="d-flex justify-content-center" v-if="show_examine_all">
 
-      <div class="container-fluid" v-if="show_examine1" @click="show_next_examine" style="margin-top: 15px;">
+      <div class="d-flex justify-content-center" v-if="show_examine1" @click="show_next_examine" style="margin-top: 15px;">
         <p><h4><b>Examine next 3 policy cards</b></h4></p>
       </div>
 
       <div class="container-fluid" v-if="show_examine2" @click="dismiss_examine" style="margin-top: 15px;">
         <div class="d-flex justify-content-center"><h4><b>Dismiss Cards</b></h4></div>
         <div class="d-flex justify-content-center">
-          <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal') }"><b>{{policies_list[0]}}</b></div>
+          <div class="container-fluid" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal'),  }"><b>{{policies_list[0]}}</b></div>
           <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[1]=='Fascist'), l_color : (policies_list[1]=='Liberal') }"><b>{{policies_list[1]}}</b></div>
           <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[2]=='Fascist'), l_color : (policies_list[2]=='Liberal') }"><b>{{policies_list[2]}}</b></div>
         </div>
