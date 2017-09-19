@@ -81,12 +81,10 @@ var app = new Vue({
 
     fascist_win: function() {
       this.show_draw = false
-      this.show_shuffle = false
       this.show_fascist_win = true
     },
     liberal_win: function() {
       this.show_draw = false
-      this.show_shuffle = false
       this.show_liberal_win = true
     },
 
@@ -293,12 +291,15 @@ var app = new Vue({
         this.show_examine1 = true
         this.show_draw = false
         this.show_shuffle = false
+      }
 
       this.num_policies_left = this.policies_list.length
-      }
 
       if (this.num_policies_left < 3 && examining == false) {
         this.show_shuffle = true
+        if (this.show_liberal_win || this.show_fascist_win) {
+          this.show_shuffle = false
+        }
         this.show_draw = false
         this.show_policies = false
         this.show_policy_1 = false
