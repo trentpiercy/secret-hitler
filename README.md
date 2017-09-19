@@ -15,3 +15,6 @@ Mobile-First vue.js WebApp replacement for physical Secret Hitler board and card
 - President chooses a policy card to discard  
 - President hands phone to chancellor who decides the final policy discard
 - Play and repeat till game is won  
+
+**Credit to [secrethitler.com](http://secrethitler.com)**  
+**[Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**
