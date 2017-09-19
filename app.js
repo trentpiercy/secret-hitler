@@ -81,10 +81,12 @@ var app = new Vue({
 
     fascist_win: function() {
       this.show_draw = false
+      this.show_shuffle = false
       this.show_fascist_win = true
     },
     liberal_win: function() {
       this.show_draw = false
+      this.show_shuffle = false
       this.show_liberal_win = true
     },
 
