@@ -90,14 +90,14 @@
       margin: 3px;
     }
     #f_slot {
-      border: 2px solid #F0654B;
+      border: 1px solid #F0654B;
       height: 85px;
       width: 100%;
       border-radius: 3px;
       padding-top: 5px;
     }
     #l_slot {
-      border: 2px solid #aae9ed;
+      border: 1px solid #0275D8;
       height: 65px;
       width: 100%;
       padding-top: 5px;
@@ -264,7 +264,7 @@
 
     <div class="container-fluid" v-show="show_draw">
       <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-outline-primary btn-lg" @click="draw_3">Draw 3</button>
+        <button type="button" class="btn btn-outline-success btn-lg" @click="draw_3">Draw 3</button>
       </div>
 
       <div class="d-flex justify-content-center" id="num_policies_left">
@@ -322,9 +322,9 @@
       <div class="container-fluid" v-if="show_examine2" @click="dismiss_examine" style="margin-top: 15px;">
         <div class="d-flex justify-content-center"><h4><b>Dismiss Cards</b></h4></div>
         <div class="d-flex justify-content-center">
-          <div class="container-fluid" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal'),  }"><b>{{policies_list[0]}}</b></div>
-          <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[1]=='Fascist'), l_color : (policies_list[1]=='Liberal') }"><b>{{policies_list[1]}}</b></div>
-          <div class="container-fluid" id="policies" v-bind:class="{ f_color : (policies_list[2]=='Fascist'), l_color : (policies_list[2]=='Liberal') }"><b>{{policies_list[2]}}</b></div>
+          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal'), 'card-primary' : (policies_list[0]=='Liberal'), 'card-danger' : (policies_list[0]=='Fascist') }"><b>{{policies_list[0]}}</b></div>
+          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[1]=='Fascist'), l_color : (policies_list[1]=='Liberal'), 'card-primary' : (policies_list[1]=='Liberal'), 'card-danger' : (policies_list[1]=='Fascist') }"><b>{{policies_list[1]}}</b></div>
+          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[2]=='Fascist'), l_color : (policies_list[2]=='Liberal'), 'card-primary' : (policies_list[2]=='Liberal'), 'card-danger' : (policies_list[2]=='Fascist') }"><b>{{policies_list[2]}}</b></div>
         </div>
       </div>
     </div>
