@@ -8,7 +8,7 @@
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#D9534F">
     <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#F0654B">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#D9534F">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -22,48 +22,39 @@
     <link rel="icon" href="https://i.imgur.com/G5EIHqa.png">
 
     <style>
-
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/069586/00000000000000000001008f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format("woff2"),url(https://use.typekit.net/af/069586/00000000000000000001008f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format("woff"),url(https://use.typekit.net/af/069586/00000000000000000001008f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format("opentype");font-weight:500;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/e9d809/000000000000000000010091/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/e9d809/000000000000000000010091/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/e9d809/000000000000000000010091/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}
     @font-face{font-family:courier-prime;src:url(https://use.typekit.net/af/a9c2c0/0000000000000000000134f9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/a9c2c0/0000000000000000000134f9/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/a9c2c0/0000000000000000000134f9/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;}
     @font-face{font-family:courier-prime;src:url(https://use.typekit.net/af/86c644/0000000000000000000134f8/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/86c644/0000000000000000000134f8/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/86c644/0000000000000000000134f8/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}
     @font-face{font-family:courier-prime;src:url(https://use.typekit.net/af/6818cc/0000000000000000000134f7/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/6818cc/0000000000000000000134f7/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/6818cc/0000000000000000000134f7/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;}
     @font-face{font-family:courier-prime;src:url(https://use.typekit.net/af/142cf7/0000000000000000000134f6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/142cf7/0000000000000000000134f6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/142cf7/0000000000000000000134f6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}
-
     #app {
       padding-top: 15px;
       font-family: courier-prime, sans-serif;
     }
-
     .btn {
       font-family: courier-prime, sans-serif;
       font-weight: 700;
     }
-
     h2 {
       font-size: 250%;
     }
-
     p {
       text-align: center;
       font-weight: 700;
       font-size: x-small;
     }
-
     #main_menu {
       max-width: 425px;
       min-width: 370px;
     }
-
     #main {
       max-width: 600px;
       min-width: 370px;
     }
-
     #standard {
       padding-top: 10px;
     }
-
     #rt_size {
       font-size: 300%;
       margin: 10px;
@@ -71,7 +62,6 @@
       width: 315px;
       height: 185px;
     }
-
     #role_text {
       border: 5px solid #f7f7f9;
       font-size: 300%;
@@ -80,31 +70,25 @@
       width: 315px;
       height: 185px;
     }
-
     #role_text_blank {
       border: 5px solid #f7f7f9;
       margin: 10px;
       width: 315px;
       height: 185px;
     }
-
     #next_button {
       padding-top: 10px;
     }
-
     #enter_btn {
       margin-left: 10px;
     }
-
     #inputplayers {
       border: 4px solid #f7f7f9;
       padding: 25px;
     }
-
     .container-fluid {
       margin: 3px;
     }
-
     #f_slot {
       border: 2px solid #F0654B;
       height: 85px;
@@ -112,7 +96,6 @@
       border-radius: 3px;
       padding-top: 5px;
     }
-
     #l_slot {
       border: 2px solid #aae9ed;
       height: 65px;
@@ -121,40 +104,32 @@
       border-radius: 3px;
       margin-bottom: 15px;
     }
-
     #policies {
       padding: 25px;
       margin-left: 3px;
       margin-right: 3px;
       background: white;
     }
-
     #fascist_slots {
       margin-bottom: 40px;
     }
-
     #liberal_slots {
     }
-
     #discard_text {
       margin-top: 20px;
     }
-
     #num_policies_left {
       margin-top: 20px;
     }
-
     .l_filled {
       background-color: #ddffff;
     }
     .f_filled {
       background-color: #ff9678;
     }
-
     #help {
       margin-top: 15px; 
     }
-
     .l_color {
       color: #0275D8;
     }
@@ -164,7 +139,6 @@
     .h_color {
       color: #F0AD4E;
     }
-
     </style>
 
   </head>
@@ -207,14 +181,14 @@
       <div class="container-fluid" id="rolecard" v-show="show_flip">
         <div class="card card-inverse mb-3 text-center" id="rt_size" style="background-color: white; color: black;" @click="flip"></div>
         <div class="d-flex justify-content-center" id="next_button">
-          <button type="button" class="btn btn-outline-warning btn-lg" @click="flip">Flip</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg" @click="flip">Flip</button>
         </div>
       </div>
 
       <div class="container-fluid" id="rolecard" v-show="show_rolecard">
         <div class="card card-inverse mb-3 text-center" id="rt_size" style="background-color: white;" v-bind:class="{ f_color : (role=='Fascist'), l_color : (role=='Liberal'), h_color : (role=='Hitler'), 'card-primary' : (role=='Liberal'), 'card-danger' : (role=='Fascist'), 'card-warning' : (role=='Hitler') }" @click="next_role"><b>{{role}}</b></div>
         <div class="d-flex justify-content-center" id="next_button">
-          <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next</button>
+          <button type="button" class="btn btn-outline-success btn-lg" @click="next_role">Next Card</button>
         </div>
       </div>
     </div>
