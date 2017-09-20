@@ -291,9 +291,9 @@
     <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
 
     <div class="d-flex justify-content-center" v-if="show_policies">
-      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_1" v-bind:class="{ f_color : (drawn_policies[0]=='Fascist'), l_color : (drawn_policies[0]=='Liberal'), 'card-primary' : (drawn_policies[0]=='Liberal'), 'card-danger' : (drawn_policies[0]=='Fascist') }" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
-      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_2" v-bind:class="{ f_color : (drawn_policies[1]=='Fascist'), l_color : (drawn_policies[1]=='Liberal'), 'card-primary' : (drawn_policies[1]=='Liberal'), 'card-danger' : (drawn_policies[1]=='Fascist') }" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
-      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_3" v-bind:class="{ f_color : (drawn_policies[2]=='Fascist'), l_color : (drawn_policies[2]=='Liberal'), 'card-primary' : (drawn_policies[2]=='Liberal'), 'card-danger' : (drawn_policies[2]=='Fascist') }" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
+      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_1" v-bind:class="{ f_color : (drawn_policies[0]=='Fascist'), l_color : (drawn_policies[0]=='Liberal'), '' : (drawn_policies[0]=='Liberal'), '' : (drawn_policies[0]=='Fascist') }" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
+      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_2" v-bind:class="{ f_color : (drawn_policies[1]=='Fascist'), l_color : (drawn_policies[1]=='Liberal'), '' : (drawn_policies[1]=='Liberal'), '' : (drawn_policies[1]=='Fascist') }" @click="discard_2"><b>{{drawn_policies[1]}}</b></div>
+      <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_3" v-bind:class="{ f_color : (drawn_policies[2]=='Fascist'), l_color : (drawn_policies[2]=='Liberal'), '' : (drawn_policies[2]=='Liberal'), '' : (drawn_policies[2]=='Fascist') }" @click="discard_3"><b>{{drawn_policies[2]}}</b></div>
     </div>
 
     <div class="container-fluid" v-if="show_policies">
@@ -322,9 +322,9 @@
       <div class="container-fluid" v-if="show_examine2" @click="dismiss_examine" style="margin-top: 15px;">
         <div class="d-flex justify-content-center"><h4><b>Dismiss Cards</b></h4></div>
         <div class="d-flex justify-content-center">
-          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal'), 'card-primary' : (policies_list[0]=='Liberal'), 'card-danger' : (policies_list[0]=='Fascist') }"><b>{{policies_list[0]}}</b></div>
-          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[1]=='Fascist'), l_color : (policies_list[1]=='Liberal'), 'card-primary' : (policies_list[1]=='Liberal'), 'card-danger' : (policies_list[1]=='Fascist') }"><b>{{policies_list[1]}}</b></div>
-          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[2]=='Fascist'), l_color : (policies_list[2]=='Liberal'), 'card-primary' : (policies_list[2]=='Liberal'), 'card-danger' : (policies_list[2]=='Fascist') }"><b>{{policies_list[2]}}</b></div>
+          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[0]=='Fascist'), l_color : (policies_list[0]=='Liberal'), '' : (policies_list[0]=='Liberal'), '' : (policies_list[0]=='Fascist') }"><b>{{policies_list[0]}}</b></div>
+          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[1]=='Fascist'), l_color : (policies_list[1]=='Liberal'), '' : (policies_list[1]=='Liberal'), '' : (policies_list[1]=='Fascist') }"><b>{{policies_list[1]}}</b></div>
+          <div class="card card-inverse mb-3 text-center" id="policies" v-bind:class="{ f_color : (policies_list[2]=='Fascist'), l_color : (policies_list[2]=='Liberal'), '' : (policies_list[2]=='Liberal'), '' : (policies_list[2]=='Fascist') }"><b>{{policies_list[2]}}</b></div>
         </div>
       </div>
     </div>
