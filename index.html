@@ -84,30 +84,31 @@
     }
     #inputplayers {
       border: 4px solid #f7f7f9;
+      border-radius: 3px;
       padding: 25px;
     }
     .container-fluid {
       margin: 3px;
     }
     #f_slot {
-      border: 1px solid #F0654B;
+      border: 2px solid #82121b;
       height: 85px;
       width: 100%;
       border-radius: 3px;
       padding-top: 5px;
     }
     #l_slot {
-      border: 1px solid #0275D8;
+      border: 2px solid #002752;
       height: 65px;
       width: 100%;
       padding-top: 5px;
-      border-radius: 3px;
+      border-radius: 4px;
       margin-bottom: 15px;
     }
     #policies {
       padding: 25px;
       margin-left: 3px;
-      margin-right: 3px;
+      margin-right: 4px;
       background: white;
     }
     #fascist_slots {
@@ -124,19 +125,19 @@
       margin-top: 20px;
     }
     .l_filled {
-      background-color: #ddffff;
+      background-color: #B8DAFF;
     }
     .f_filled {
-      background-color: #ff9678;
+      background-color: #F8D7DA;
     }
     #help {
       margin-top: 15px; 
     }
     .l_color {
-      color: #0275D8;
+      color: #002752;
     }
     .f_color {
-      color: #D9534F;
+      color: #82121b;
     }
     .h_color {
       color: #F0AD4E;
@@ -268,7 +269,7 @@
       </div>
 
       <div class="d-flex justify-content-center" id="num_policies_left">
-        <h6><b><font color="#0275D8">{{num_policies_left}}</font> Polcies Left in Draw Pile</b></h6>
+        <h6><b><font color="#5CB85C">{{num_policies_left}}</font> Polcies Left in Draw Pile</b></h6>
       </div>
       <div class="d-flex justify-content-center" id="num_policies_left" style="margin-top: -5px">
         <h6><b><font color="#D9534F">{{num_policies_discarded}}</font> Polcies in Discard</b></h6>
@@ -281,7 +282,7 @@
         <button type="button" class="btn btn-outline-info btn-lg" @click="randomize_policies">Shuffle Deck</button>
       </div>
       <div class="d-flex justify-content-center" id="num_policies_left">
-        <h6><b><font color="#0275D8">{{num_policies_left}}</font> Polcies Left in Deck</b></h6>
+        <h6><b><font color="#5CB85C">{{num_policies_left}}</font> Polcies Left in Draw Pile</b></h6>
       </div>
       <div class="d-flex justify-content-center" id="num_policies_left" style="margin-top: -5px">
         <h6><b><font color="#D9534F">{{num_policies_discarded}}</font> Polcies in Discard</b></h6>

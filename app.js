@@ -283,8 +283,13 @@ var app = new Vue({
         }
       }
 
+      this.num_policies_left = this.policies_list.length
+
       examining = false
       if (this.fascist_slots[2] && this.show_fascist_5_6 && this.examined == false) {
+        if (this.num_policies_left < 3) {
+          this.randomize_policies()
+        }
         this.examined = true
         examining = true
         this.show_examine_all = true
@@ -292,8 +297,6 @@ var app = new Vue({
         this.show_draw = false
         this.show_shuffle = false
       }
-
-      this.num_policies_left = this.policies_list.length
 
       if (this.num_policies_left < 3 && examining == false) {
         this.show_shuffle = true
