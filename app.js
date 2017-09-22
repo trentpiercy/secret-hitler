@@ -145,8 +145,6 @@ var app = new Vue({
     },
 
     randomize_policies: function() {
-      //console.log("randomizing")
-
       this.policies_list_temp = [
       "Fascist","Fascist","Fascist","Fascist","Fascist","Fascist",
       "Fascist","Fascist","Fascist","Fascist","Fascist",
@@ -154,8 +152,6 @@ var app = new Vue({
 
       for (i = 0; i < this.played_policy_list.length; i++) {
         index = this.policies_list_temp.indexOf(this.played_policy_list[i])
-        //console.log("cutting item: " + this.played_policy_list[i])
-        //console.log("cutting from temp: " + this.policies_list_temp[index])
         this.policies_list_temp.splice(index, 1)
       }
 
@@ -163,10 +159,7 @@ var app = new Vue({
       this.policies_list_length = this.policies_list_temp.length
       this.num_policies_discarded = 0
 
-      //console.log("static length: " + this.policies_list_length)
-
       for (i = 0; i < this.policies_list_length; i++) {
-        //console.log("pushing policies to list")
         r = Math.floor(Math.random()*(this.policies_list_length-i))
         this.policies_list.push(this.policies_list_temp[r])
         this.policies_list_temp.splice(r, 1)
@@ -174,7 +167,6 @@ var app = new Vue({
       this.show_draw = true
       this.show_shuffle = false
       this.num_policies_left = this.policies_list.length
-      //console.log(this.policies_list)
     },
 
     veto: function() {
@@ -196,13 +188,11 @@ var app = new Vue({
       this.show_policy_2 = true
       this.show_policy_3 = true
       this.show_draw = false
-      //console.log(this.policies_list)
       if (this.policies_list.length >= 3) {
         for (i = 0; i < 3; i++) {
           this.drawn_policies.push(this.policies_list[0])
           this.policies_list.splice(0, 1)
         }
-        //console.log(this.policies_list)
       }
       if (this.enable_veto) {
         this.show_veto = true
