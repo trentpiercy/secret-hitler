@@ -1,6 +1,6 @@
 # secret-hitler
+## **[secrethitler.xyz](http://secrethitler.xyz/)**  
 Mobile-First vue.js WebApp replacement for physical Secret Hitler board and cards  
-**[secrethitler.xyz](http://secrethitler.xyz/)**
 
 ### Function
 - Local: Play Secret Hitler in person on one mobile device  
