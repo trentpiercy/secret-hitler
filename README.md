@@ -1,6 +1,6 @@
 # secret-hitler
 ### **[secrethitler.xyz](http://secrethitler.xyz/)**  
-Mobile-First vue.js WebApp replacement for physical Secret Hitler board and cards  
+Mobile-First [Vue.js](http://github.com/vuejs/vue/) replacement for physical Secret Hitler game set  
 
 ### Function
 - Local: Play Secret Hitler in person on one mobile device  
@@ -18,7 +18,7 @@ Mobile-First vue.js WebApp replacement for physical Secret Hitler board and card
 
 ### Credit
 For official rules and printable copy visit [secrethitler.com](http://secrethitler.com)  
-For more in depth unnofical strategy guide visit [secrethitler.tartanllama.xyz/](https://secrethitler.tartanllama.xyz/)  
+For more in depth unnofical strategy guide visit [secrethitler.tartanllama.xyz/](https://secrethitler.tartanllama.xyz)  
 
 ___
 **[Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**
