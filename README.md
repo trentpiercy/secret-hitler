@@ -1,5 +1,5 @@
 # secret-hitler
-## **[secrethitler.xyz](http://secrethitler.xyz/)**  
+### **[secrethitler.xyz](http://secrethitler.xyz/)**  
 Mobile-First vue.js WebApp replacement for physical Secret Hitler board and cards  
 
 ### Function
