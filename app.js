@@ -170,11 +170,14 @@ var app = new Vue({
     },
 
     veto: function() {
+      this.show_veto = false
       this.show_policies = false
       this.show_policy_1 = false
       this.show_policy_2 = false
       this.show_policy_3 = false
       this.show_draw = true
+      this.discard_tracker = 0
+      this.num_policies_discarded += 1
       if (this.policies_list.length < 3) {
         this.show_shuffle = true
         this.show_draw = false
@@ -182,6 +185,7 @@ var app = new Vue({
     },
 
     draw_3: function() {
+      this.show_veto = false
       this.drawn_policies = []
       this.show_policies = true
       this.show_policy_1 = true
@@ -194,17 +198,16 @@ var app = new Vue({
           this.policies_list.splice(0, 1)
         }
       }
-      if (this.enable_veto) {
-        this.show_veto = true
-      }
       this.num_policies_left = this.policies_list.length
     },
 
     discard_1: function() {
-      this.show_veto = false
       this.show_policy_1 = false
       this.discard_tracker += 1
       this.num_policies_discarded += 1
+      if (this.enable_veto) {
+        this.show_veto = true
+      }
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -218,10 +221,12 @@ var app = new Vue({
       }
     },
     discard_2: function() {
-      this.show_veto = false
       this.show_policy_2 = false
       this.discard_tracker += 1
       this.num_policies_discarded += 1
+      if (this.enable_veto) {
+        this.show_veto = true
+      }
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -235,10 +240,12 @@ var app = new Vue({
       }
     },
     discard_3: function() {
-      this.show_veto = false
       this.show_policy_3 = false
       this.discard_tracker += 1
       this.num_policies_discarded += 1
+      if (this.enable_veto) {
+        this.show_veto = true
+      }
       if (this.discard_tracker == 2) {
         this.show_draw = true
         this.show_policies = false
@@ -258,7 +265,6 @@ var app = new Vue({
         this.fascist_slot_tracker += 1
         this.played_policy_list.push("Fascist")
         if (this.fascist_slot_tracker == 5) {
-          this.show_veto = true
           this.enable_veto = true
         }
         if (this.fascist_slot_tracker == 6) {
