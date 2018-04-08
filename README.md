@@ -1,6 +1,5 @@
-# secret-hitler
-### **[secrethitler.xyz](http://secrethitler.xyz/)**  
-Mobile-First [Vue.js](http://github.com/vuejs/vue/) replacement for physical [Secret Hitler](https://secrethitler.com) game set  
+# **[secrethitler.xyz](http://secrethitler.xyz/)**    
+Mobile-First [Vue.js](http://github.com/vuejs/vue/) replacement for physical [Secret Hitler](http://secrethitler.com) game set  
 
 ### Function
 - Local: Play Secret Hitler in person on one mobile device  
@@ -10,12 +9,13 @@ Mobile-First [Vue.js](http://github.com/vuejs/vue/) replacement for physical [Se
 ### How to Play
 - Choose number of players  
 - Flip card to see your role, tap to flip back over  
-- Pass device to next player till all roles assigned
-- President chooses chancellor
-- President draws policy cards 
+- Pass device to next player till all roles are assigned
+- President chooses chancellor and all players vote to decide if the election passes
+- President draws three policy cards 
 - President chooses a policy card to discard  
-- President hands device to chancellor who decides the final policy discard
-- Hand device to next president and repeat till game is over  
+- President passes device to chancellor who decides which policy is played
+- Presidency is given to player left of the previous president
+- Repeat till game is over 
 
 ### Credit
 For official rules and printable game set visit [secrethitler.com](http://secrethitler.com)  
