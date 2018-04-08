@@ -108,6 +108,7 @@
     }
     #discard_text {
       margin-top: 20px;
+      margin-bottom: 10px;
     }
     #num_policies_left {
       margin-top: 20px;
@@ -138,14 +139,14 @@
 <div id="app">
 
   <div class="d-flex justify-content-center">
-    <h2><b>Secret Hitler</b></h2>
+    	<h2><b>SecretHitler.xyz</b></h2>
   </div>
 
   <div class="d-flex justify-content-center">
     <div class="container-fluid" id="main_menu" v-show="show_inputplayers">
 
       <div class="container-fluid" id="inputplayers" v-show="show_inputplayers">
-        <div class="d-flex justify-content-center"><h5><b>Number of Players</b></h5></div>
+        <div class="d-flex justify-content-center"><h4><b>Number of Players</b></h4></div>
         <div class="d-flex justify-content-center" id="standard">
           <button type="button" class="btn btn-outline-danger btn-lg" id="enter_btn" @click="start_5">Five</button>
           <button type="button" class="btn btn-outline-danger btn-lg" id="enter_btn" @click="start_6">Six</button>
@@ -222,7 +223,7 @@
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
        <p>President investigates an identity</p></div>
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
-       <p>Presedent chooses next President</p></div>
+       <p>President chooses next President</p></div>
       </div>
       <div class="d-flex justify-content-center">
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
@@ -240,7 +241,7 @@
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[1] }">
        <p>President investigates an identity</p></div>
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[2] }">
-       <p>Presedent chooses next President</p></div>
+       <p>President chooses next President</p></div>
       </div>
       <div class="d-flex justify-content-center">
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[3] }">
@@ -248,6 +249,24 @@
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[4] }">
        <p>President must kill player. Veto unlocked</p></div>
        <div class="container-fluid" id="f_slot" v-bind:class="{ f_filled : fascist_slots[5] }"><p>Fascists Win</p></div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="inputplayers">
+		<div class="container-fluid" v-show="show_chancellor_confirm">
+			<div class="d-flex justify-content-center">
+      	<h3><b>Choose Chancellor</b></h3>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-info btn-lg" @click="confirm_chancellor">Confirm</button>
+      </div>
+
+      <div class="d-flex justify-content-center" id="num_policies_left">
+        <h6><b><font color="#5CB85C">{{num_policies_left}}</font> Polcies Left in Draw Pile</b></h6>
+      </div>
+      <div class="d-flex justify-content-center" id="num_policies_left" style="margin-top: -5px">
+        <h6><b><font color="#D9534F">{{num_policies_discarded}}</font> Polcies in Discard</b></h6>
       </div>
     </div>
 
@@ -277,7 +296,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h4><b>Tap to Discard</b></h4></div>
+    <div class="d-flex justify-content-center" v-if="show_policies" id="discard_text"><h3><b>Tap to <font color="#500000">Discard</font></b></h3></div>
 
     <div class="d-flex justify-content-center" v-if="show_policies">
       <div class="card card-inverse mb-3 text-center" id="policies" v-show="show_policy_1" v-bind:class="{ f_color : (drawn_policies[0]=='Fascist'), l_color : (drawn_policies[0]=='Liberal'), '' : (drawn_policies[0]=='Liberal'), '' : (drawn_policies[0]=='Fascist') }" @click="discard_1"><b>{{drawn_policies[0]}}</b></div>
@@ -293,12 +312,12 @@
 
     <div class="d-flex justify-content-center" v-if="show_liberal_win">
       <div class="container-fluid">
-        <h3><b>Liberals Win!</b></h3><p class="small">Refresh to play again</p>
+        <h3><b><font color="#002752">Liberals Win!</font></b></h3><p class="small">Refresh to play again!</p>
       </div>
     </div>
     <div class="d-flex justify-content-center" v-if="show_fascist_win">
       <div class="container-fluid">
-        <h3><b>Fascists Win!</b></h3><p class="small">Refresh to play again</p>
+        <h3><b><font color="#82121b">Fascists Win!</font></b></h3><p class="small">Refresh to play again!</p>
       </div>
     </div>
 
@@ -317,6 +336,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   </div>
   </div>
