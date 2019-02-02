@@ -17,8 +17,10 @@
 
     <style>
     #app {
-      padding-top: 15px;
       font-family: 'Roboto Mono', monospace;
+    }
+    #top_bar {
+      background-color: #D9534F;
     }
     .btn {
       font-family: 'Roboto Mono', monospace;
@@ -143,11 +145,11 @@
 <body>
 <div id="app">
 
-  <div class="d-flex justify-content-center">
-    	<h2><b>SecretHitler.xyz</b></h2>
+  <div class="d-flex justify-content-center" id="top_bar">
+    	<h2><b>secrethitler.xyz</b></h2>
   </div>
 
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center" style="padding-top: 10px">
     <div class="container-fluid" id="main_menu" v-show="show_inputplayers">
 
       <div class="container-fluid" id="inputplayers" v-show="show_inputplayers">
