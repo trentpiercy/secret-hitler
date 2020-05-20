@@ -41,6 +41,8 @@ var app = new Vue({
     num_policies_left: 17,
     played_policy: "",
     played_policy_list: [],
+    num_failed_votes: 0,
+    government_in_chaos: false,
 
     liberal_slots: [false, false, false, false, false],
     fascist_slots: [false, false, false, false, false, false],
@@ -209,6 +211,19 @@ var app = new Vue({
       this.num_policies_left = this.policies_list.length
     },
 
+    fail_vote: function() {
+      this.num_failed_votes += 1
+      if (this.num_failed_votes == 3) {
+        if (this.policies_list.length >= 1) {
+          this.played_policy = this.policies_list[0]
+          this.policies_list.splice(0, 1)
+        }
+        this.num_policies_left = this.policies_list.length
+        this.government_in_chaos = true
+        this.play_policy()  
+      }
+    },
+
     discard_1: function() {
       this.show_policy_1 = false
       this.discard_tracker += 1
@@ -295,12 +310,14 @@ var app = new Vue({
           this.randomize_policies()
         }
         this.examined = true
-        examining = true
-        this.show_examine_all = true
-        this.show_examine1 = true
-        this.show_draw = false
-        this.show_chancellor_confirm = false
-        this.show_shuffle = false
+        if (this.government_in_chaos == false) {
+          examining = true
+          this.show_examine_all = true
+          this.show_examine1 = true
+          this.show_draw = false
+          this.show_chancellor_confirm = false
+          this.show_shuffle = false  
+        }
       }
 
       if (this.num_policies_left < 3 && examining == false) {
@@ -315,6 +332,8 @@ var app = new Vue({
         this.show_policy_2 = false
         this.show_policy_3 = false
       }
+      this.government_in_chaos = false
+      this.num_failed_votes = 0
     },
 
     show_next_examine: function() {
